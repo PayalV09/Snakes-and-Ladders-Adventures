@@ -1,0 +1,13 @@
+///// Setting Up AWS Amplify in Your Project
+
+
+First, install the Amplify CLI and initialize the project:
+npm install -g @aws-amplify/cli
+amplify configure
+amplify init
+
+
+Then, add authentication and API:
+amplify add auth
+amplify add api
+amplify add storage
