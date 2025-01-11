@@ -1,0 +1,15 @@
+type PlayerScore @model {
+  id: ID!
+  username: String!
+  score: Int!
+  lastUpdated: AWSDateTime!
+}
+
+type Query {
+  getPlayerScores: [PlayerScore]
+  getPlayerScore(id: ID!): PlayerScore
+}
+
+type Mutation {
+  savePlayerScore(username: String!, score: Int!): PlayerScore
+}
