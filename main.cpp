@@ -1,6 +1,5 @@
 /*****    Header Files required in the program   *****/
 
-//Glut required header files
 #ifdef __APPLE__
 #include <GLUT/glut.h>
 #include <GLUT/glext.h>
