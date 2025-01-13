@@ -1,32 +1,4 @@
-/*
-LodePNG version 20161127
 
-Copyright (c) 2005-2016 Lode Vandevenne
-
-This software is provided 'as-is', without any express or implied
-warranty. In no event will the authors be held liable for any damages
-arising from the use of this software.
-
-Permission is granted to anyone to use this software for any purpose,
-including commercial applications, and to alter it and redistribute it
-freely, subject to the following restrictions:
-
-    1. The origin of this software must not be misrepresented; you must not
-    claim that you wrote the original software. If you use this software
-    in a product, an acknowledgment in the product documentation would be
-    appreciated but is not required.
-
-    2. Altered source versions must be plainly marked as such, and must not be
-    misrepresented as being the original software.
-
-    3. This notice may not be removed or altered from any source
-    distribution.
-*/
-
-/*
-The manual and changelog are in the header file "lodepng.h"
-Rename this file to lodepng.cpp to use it for C++, or to lodepng.c to use it for C.
-*/
 
 #include "lodepng.h"
 
@@ -41,23 +13,6 @@ Rename this file to lodepng.cpp to use it for C++, or to lodepng.c to use it for
 
 const char* LODEPNG_VERSION_STRING = "20161127";
 
-/*
-This source file is built up in the following large parts. The code sections
-with the "LODEPNG_COMPILE_" #defines divide this up further in an intermixed way.
--Tools for C and common code for PNG and Zlib
--C Code for Zlib (huffman, deflate, ...)
--C Code for PNG (file format chunks, adam7, PNG filters, color conversions, ...)
--The C++ wrapper around all of the above
-*/
-
-/*The malloc, realloc and free functions defined here with "lodepng_" in front
-of the name, so that you can easily change them to others related to your
-platform if needed. Everything else in the code calls these. Pass
--DLODEPNG_NO_COMPILE_ALLOCATORS to the compiler, or comment out
-#define LODEPNG_COMPILE_ALLOCATORS in the header, to disable the ones here and
-define them in your own project's source files without needing to change
-lodepng source code. Don't forget to remove "static" if you copypaste them
-from here.*/
 
 #ifdef LODEPNG_COMPILE_ALLOCATORS
 static void* lodepng_malloc(size_t size)
@@ -124,13 +79,7 @@ Example: if(!uivector_resizev(&frequencies_ll, 286, 0)) ERROR_BREAK(83);
 }
 
 /*
-About uivector, ucvector and string:
--All of them wrap dynamic arrays or text strings in a similar way.
--LodePNG was originally written in C++. The vectors replace the std::vectors that were used in the C++ version.
--The string tools are made to avoid problems with compilers that declare things like strncat as deprecated.
--They're not used in the interface, only internally in this file as static functions.
--As with many other structs in this file, the init and cleanup functions serve as ctor and dtor.
-*/
+
 
 #ifdef LODEPNG_COMPILE_ZLIB
 /*dynamic vector of unsigned ints*/
